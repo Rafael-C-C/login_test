@@ -17,23 +17,41 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("HomeScreem")),
-      body: Center(
-        child: Column(
-          children: [
-            Text('Access token: $accessToken'),
-            Container(
-              color: Colors.red,
-              height: 10,
-            ),
-            Text('$profile'),
-            Text('And your email is $email'),
-            Image.network(
-              '$imageUrl',
-              height: 100,
-              width: 100,
-            )
-          ],
+      appBar: AppBar(title: const Text("Tus datos de facebook:")),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'Token de acceso: \n$accessToken',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                color: Colors.blue,
+                height: 10,
+              ),
+              Text(
+                'Tu nombre es: \n$profile',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'Tu correo es: \n $email',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                'Tu foto de perfil:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Image.network(
+                '$imageUrl',
+                height: 100,
+                width: 100,
+              )
+            ],
+          ),
         ),
       ),
     );

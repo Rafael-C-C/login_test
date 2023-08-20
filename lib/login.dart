@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:facebook_login/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
@@ -9,21 +11,16 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text('Login'),
-              Row(
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        _facebookAcces(context);
-                      },
-                      child: const Text("Accede con Facebook"))
-                ],
-              )
-            ]),
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text('Login'),
+            ElevatedButton(
+                onPressed: () {
+                  _facebookAcces(context);
+                },
+                child: const Text("Accede con Facebook"))
+          ]),
+        ),
       ),
     );
   }
@@ -34,7 +31,7 @@ class LoginScreen extends StatelessWidget {
       FacebookPermission.publicProfile,
       FacebookPermission.email,
       //FacebookPermission.userFriends,
-      //FacebookPermission.userGender,
+      FacebookPermission.userGender,
     ]);
     //Check resultStatus
     switch (res.status) {
