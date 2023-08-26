@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:facebook_login/home_screen.dart';
+import 'package:facebook_login/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 
@@ -18,7 +19,17 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   _facebookAcces(context);
                 },
-                child: const Text("Accede con Facebook"))
+                child: const Text("Accede con Facebook")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ListScreen(),
+                    ),
+                  );
+                },
+                child: const Text("Mira la lista"))
           ]),
         ),
       ),
